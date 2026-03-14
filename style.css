@@ -1,6 +1,5 @@
-/* Reset e Base */
 :root {
-    --primary-color: #0055a6; /* Un blu "scientifico" o istituzionale */
+    --primary-color: #0055a6; /* Blu istituzionale */
     --secondary-color: #f0f4f8;
     --text-color: #333;
     --bg-color: #ffffff;
@@ -13,35 +12,37 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 900px; /* Più stretto per sembrare più pieno con poco testo */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Navbar */
 header {
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #eee;
+    background: #fff;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.logo-img {
-    height: 40px; /* Dimensione logo */
-    width: auto;
+    text-decoration: none;
 }
 
 .logo-text {
@@ -50,93 +51,105 @@ header {
     color: var(--primary-color);
 }
 
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+nav a:hover, nav a.active { color: var(--primary-color); }
+
 /* Pulsanti */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.2s;
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
+.btn-primary { background-color: var(--primary-color); color: white; }
 .btn-primary:hover { background-color: #003d7a; }
 
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    margin-left: 10px;
-}
-
-.btn-nav {
-    background-color: #333;
-    color: white;
-    font-size: 0.9rem;
-}
-
-/* Hero Section */
-.hero {
-    padding: 80px 0;
-    text-align: center;
+/* Sezioni e Griglie */
+.page-header {
     background-color: var(--secondary-color);
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Content Section */
-.content-section {
     padding: 60px 0;
     text-align: center;
 }
 
-.content-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.page-header h1 { font-size: 2.5rem; color: #1a1a1a; }
+
+.content-section { padding: 60px 0; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
 }
 
-.lead-text {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+.card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
+
+.card h3 { color: var(--primary-color); margin-bottom: 10px; }
 
 /* Footer */
 footer {
     background-color: #1a1a1a;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    margin-top: auto;
+    color: #ccc;
+    padding: 40px 0 20px 0;
+    margin-top: auto; /* Spinge il footer sempre in basso */
+    font-size: 0.9rem;
 }
 
-.email a {
-    color: var(--primary-color); /* O bianco se preferisci */
-    color: #4da6ff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
 }
+
+.footer-grid h4 { color: #fff; margin-bottom: 15px; font-size: 1.1rem; }
+.footer-grid a { color: #4da6ff; text-decoration: none; }
+.footer-grid a:hover { text-decoration: underline; }
 
 .copyright {
-    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
     font-size: 0.8rem;
-    opacity: 0.7;
+}
+/* Responsive Google Map */
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Proporzione 16:9 */
+    position: relative;
+    height: 0;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: 0;
 }
