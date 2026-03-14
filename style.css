@@ -23,7 +23,9 @@ body {
     padding: 0 20px;
 }
 
-/* Navbar */
+/* =========================================
+   Navbar e Header
+   ========================================= */
 header {
     padding: 15px 0;
     border-bottom: 1px solid #eee;
@@ -34,38 +36,47 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: wrap; /* Aiuta sui piccoli schermi */
 }
 
+/* Sistemazione del Logo */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
+    gap: 15px;
+    text-decoration: none !important; /* Rimuove la sottolineatura blu */
 }
 
 .logo-text {
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--primary-color);
+    text-decoration: none; 
 }
 
+/* Sistemazione del Menu Orizzontale */
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    list-style-type: none !important; /* Rimuove i pallini neri */
+    display: flex !important; /* Forza la disposizione in orizzontale */
+    flex-direction: row;
+    gap: 30px; /* Spazio tra le varie voci del menu */
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
-    text-decoration: none;
+    text-decoration: none !important; /* Rimuove le sottolineature dai link */
     color: var(--text-color);
     font-weight: 600;
-    transition: color 0.2s;
+    font-size: 1.05rem;
+    transition: color 0.2s ease;
 }
 
-nav a:hover, nav a.active { color: var(--primary-color); }
+nav a:hover, 
+nav a.active { 
+    color: var(--primary-color); 
+}
 
 /* Pulsanti */
 .btn {
