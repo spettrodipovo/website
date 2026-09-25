@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Il percorso: piccoli fisici, grandi viaggi — Spettro di Povo</title>
+
+    <style>
+
+    /* =========================================================
+        CONFIGURAZIONE
+        ========================================================= */
+
+    :root {
+
+        /* ---------------------------------------------------------
+        PALETTE
+        --------------------------------------------------------- */
+
+        /* Colori principali */
+        --color-primary: #756fa5;
+        --color-primary-dark: rgb(63, 62, 129);
+        --color-accent: #756fa5;
+
+        /* Testi */
+        --color-text: #2f2c45;
+        --color-text-muted: #756fa5;
+        --color-text-light: #8e86c2;
+        --color-text-faint: #756fa5;
+
+        /* Sfondi */
+        --color-background: #ebe1f9;
+        --color-background-card: #ffffff;
+
+        /* Bordi */
+        --color-border: #c7c1ef;
+        --color-border-light: #d5d0f7;
+
+        /* Stati */
+        --color-status-bg: #c3dcca;
+        --color-status-text: #42644c;
+
+        --color-status-pending-bg: #f6e3c2;
+        --color-status-pending-text: #958044;
+
+        /* Sfondo sezione contributi */
+        --color-funders-start: #ffffff;
+        --color-funders-end: #ffffff;
+
+
+        /* ---------------------------------------------------------
+        DIMENSIONI
+        --------------------------------------------------------- */
+
+        /* Dimensione del logo nell'header */
+        --logo-size: 110px;
+
+        /* Raggi degli elementi */
+        --radius-small: 5px;
+        --radius-medium: 11px;
+        --radius-large: 14px;
+    }
+
+
+    /* =========================================================
+        BASE
+        ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: var(--color-background);
+        color: var(--color-text);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .page {
+        width: min(100% - 40px, 980px);
+        margin: 0 auto;
+    }
+
+
+    /* =========================================================
+        HEADER
+        ========================================================= */
+
+    .site-header {
+        padding: 26px 0 28px;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .association {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+    }
+
+    .association-logo {
+        width: var(--logo-size);
+        height: auto;
+
+        display: block;
+
+        object-fit: contain;
+    }
+
+    .dates {
+        flex: 0 0 auto;
+
+        color: var(--color-accent);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+
+    /* =========================================================
+        INTRO
+        ========================================================= */
+
+    .intro {
+        padding: 40px 0 36px;
+    }
+
+    .eyebrow {
+        margin: 0 0 10px;
+
+        color: var(--color-primary);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+    }
+
+    .title {
+        margin: 0;
+        max-width: 760px;
+
+        color: var(--color-primary-dark);
+        font-size: clamp(34px, 5vw, 48px);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -.035em;
+    }
+
+    .subtitle {
+        max-width: 650px;
+        margin: 15px 0 0;
+
+        color: var(--color-text-muted);
+        font-size: 17px;
+        line-height: 1.55;
+    }
+
+
+    /* =========================================================
+        PROGRAMMA
+        ========================================================= */
+
+    .program {
+        border-top: 1px solid var(--color-border);
+    }
+
+    .day {
+        display: grid;
+        grid-template-columns: 205px minmax(0, 1fr);
+
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .day-heading {
+        padding: 31px 35px 32px 0;
+    }
+
+    .day-number {
+        margin-bottom: 8px;
+
+        color: var(--color-primary);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        line-height: 1.3;
+        text-transform: uppercase;
+    }
+
+    .day-name {
+        margin: 0;
+
+        color: var(--color-text);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -.025em;
+    }
+
+    .day-route {
+        margin-top: 6px;
+
+        color: var(--color-text-light);
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+
+    /* =========================================================
+        EVENTI
+        ========================================================= */
+
+    .events {
+        border-left: 1px solid var(--color-border);
+    }
+
+    .event {
+        display: grid;
+        grid-template-columns: 125px minmax(0, 1fr);
+
+        min-height: 68px;
+
+        border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .event:last-child {
+        border-bottom: 0;
+    }
+
+    .event-time {
+        padding: 21px 22px;
+
+        color: var(--color-primary);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4;
+
+        white-space: nowrap;
+    }
+
+    .event-content {
+        min-width: 0;
+        padding: 20px 20px 20px 0;
+    }
+
+    .event-title {
+        margin: 0;
+
+        color: var(--color-text);
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+
+    .event-title strong {
+        font-weight: 700;
+    }
+
+    .event-detail {
+        margin: 5px 0 0;
+
+        color: var(--color-text-light);
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* =========================================================
+        BADGE STATO
+        ========================================================= */
+
+    .status {
+        display: inline-block;
+
+        margin-left: 7px;
+        padding: 2px 7px;
+
+        border-radius: var(--radius-small);
+
+        background: var(--color-status-bg);
+        color: var(--color-status-text);
+
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .06em;
+        line-height: 1.5;
+        text-transform: uppercase;
+        vertical-align: 1px;
+        white-space: nowrap;
+    }
+
+    .status.pending {
+        background: var(--color-status-pending-bg);
+        color: var(--color-status-pending-text);
+    }
+
+
+    /* =========================================================
+        CONTRIBUTI / ENTI
+        ========================================================= */
+
+    .funders {
+        margin-top: 24px;
+        padding: 32px 24px 36px;
+
+        background: linear-gradient(
+        110deg,
+        var(--color-funders-start) 0%,
+        var(--color-funders-end) 100%
+        );
+
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-large);
+    }
+
+    .funders-heading {
+        margin: 0 0 20px;
+
+        color: var(--color-text-light);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .funders-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+    }
+
+    .funder {
+        width: 145px;
+        height: 54px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--color-text-faint);
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .funder img {
+        max-width: 130px;
+        max-height: 48px;
+
+        object-fit: contain;
+    }
+
+
+    /* =========================================================
+        FOOTER
+        ========================================================= */
+
+    .footer {
+        padding: 20px 0 30px;
+
+        color: var(--color-text-faint);
+        font-size: 11px;
+        text-align: center;
+    }
+
+
+    /* =========================================================
+        TABLET / MOBILE
+        ========================================================= */
+
+    @media (max-width: 760px) {
+
+        .page {
+        width: min(100% - 32px, 620px);
+        }
+
+        .site-header {
+        padding: 22px 0 26px;
+        }
+
+        .header-row {
+        align-items: flex-start;
+        }
+
+        .dates {
+        padding-top: 4px;
+        }
+
+        .intro {
+        padding: 32px 0 30px;
+        }
+
+        .title {
+        font-size: 35px;
+        }
+
+        .subtitle {
+        font-size: 16px;
+        }
+
+        .day {
+        display: block;
+        }
+
+        .day-heading {
+        padding: 26px 0 19px;
+        }
+
+        .events {
+        border-top: 1px solid var(--color-border-light);
+        border-left: 0;
+        }
+
+        .event {
+        grid-template-columns: 130px minmax(0, 1fr);
+        }
+
+        .event-time {
+        padding-left: 0;
+        }
+
+        .event-content {
+        padding-right: 0;
+        }
+    }
+
+
+    /* =========================================================
+        MOBILE
+        ========================================================= */
+
+    @media (max-width: 520px) {
+
+        .page {
+        width: min(100% - 28px, 620px);
+        }
+
+        .header-row {
+        display: block;
+        }
+
+        .dates {
+        margin-top: 12px;
+        text-align: left;
+        }
+
+        .association-logo {
+        width: min(var(--logo-size), 120px);
+        }
+
+        .title {
+        font-size: 31px;
+        }
+
+        .subtitle {
+        font-size: 15px;
+        }
+
+        .event {
+        grid-template-columns: 92px minmax(0, 1fr);
+        }
+
+        .event-time {
+        padding: 17px 12px 17px 0;
+        font-size: 13px;
+        white-space: normal;
+        }
+
+        .event-content {
+        padding: 16px 0;
+        }
+
+        .event-title {
+        font-size: 16px;
+        }
+
+        .event-detail {
+        font-size: 12px;
+        }
+
+        .status {
+        margin-left: 4px;
+        }
+
+        .funders {
+        padding-left: 14px;
+        padding-right: 14px;
+        }
+
+        .funders-list {
+        gap: 15px;
+        }
+
+        .funder {
+        width: 125px;
+        }
+    }
+
+    </style>
+
+</head>
+
+
+<body>
+
+  <div class="page">
+
+
+    <!-- =======================================================
+         HEADER
+         ======================================================== -->
+
+    <header class="site-header">
+
+      <div class="header-row">
+
+        <div class="association">
+          <a href="https://spettrodipovo.it" target="_blank"><img class="association-logo" src="https://raw.githubusercontent.com/spettrodipovo/website/refs/heads/main/viaggio/img/spettro-nowhite.png" alt="Spettro di Povo"></a>
+        </div>
+
+        <div class="dates">
+          15 - 17 ottobre 2026
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =======================================================
+         INTRO
+         ======================================================== -->
+
+    <section class="intro">
+
+      <p class="eyebrow">
+        Viaggio scientifico
+      </p>
+
+      <h1 class="title">
+        Piccoli fisici, grandi viaggi
+      </h1>
+
+      <p class="subtitle">
+        Ai centri di ricerca tra Roma e Frascati.
+      </p>
+
+    </section>
+
+
+    <!-- =======================================================
+         PROGRAMMA
+         ======================================================== -->
+
+    <main class="program">
+
+
+      <!-- =====================================================
+           GIOVEDÌ 15
+           ====================================================== -->
+
+      <section class="day">
+
+        <div class="day-heading">
+
+          <div class="day-number">
+            Giorno 01
+          </div>
+
+          <h2 class="day-name">
+            Giovedì 15 ottobre
+          </h2>
+
+          <div class="day-route">
+            Trento → Roma
+          </div>
+
+        </div>
+
+
+        <div class="events">
+
+          <div class="event">
+
+            <div class="event-time">
+              06:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Partenza dall'autostazione
+              </p>
+              <p class="event-detail">
+                Ritrovo dalle 6:15 a Piazza Dante, di fianco al palazzo della provincia
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              06:30 - 14:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Viaggio verso Roma e pranzo al sacco
+              </p>
+
+              <p class="event-detail">
+                Pausa pranzo prevista a Lucignano (AR). Il pullman accompagna il gruppo alla stazione Roma Tiburtina.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              15:00  -  18:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Visita al <strong>Museo Enrico Fermi</strong>
+                <span class="status">Confermata</span>
+              </p>
+
+              <p class="event-detail">
+                2 turni da 1h 30min
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              18:30  -  19:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Trasferimento in agriturismo
+              </p>
+              <p class="event-detail">
+                Si raggiunge il pullman alla stazione Roma Tiburtina
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              20:00 →
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Cena e tempo libero
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           VENERDÌ 16
+           ====================================================== -->
+
+      <section class="day">
+
+        <div class="day-heading">
+
+          <div class="day-number">
+            Giorno 02
+          </div>
+
+          <h2 class="day-name">
+            Venerdì 16 ottobre
+          </h2>
+
+          <div class="day-route">
+            Frascati e Roma
+          </div>
+
+        </div>
+
+
+        <div class="events">
+
+          <div class="event">
+
+            <div class="event-time">
+              07:00 - 08:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Colazione e preparazione
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              08:15 - 09:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Trasferimento al laboratorio
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              09:00 - 11:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Visita ai centri di ricerca
+              </p>
+
+              <p class="event-detail">
+                <b>INFN</b>: 09:00 - 11:00 <span class="status">Confermata</span>
+              </p>
+              <p class="event-detail">
+                <b>ENEA</b>: 09:00 - 11:30 <span class="status pending">In attesa</span>
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              11:30 - 12:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Pranzo e trasferimento
+              </p>
+
+              <p class="event-detail">
+                Trasferimento circa 10 minuti a piedi
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              13:00 - 14:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Visita <strong>ESA Frascati</strong>
+                <span class="status">Confermata</span>
+              </p>
+              <p class="event-detail">
+                È obbligatorio presentarsi 30 min in anticipo 
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              14:30 - 15:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Trasferimento verso Roma in bus
+              </p>
+
+              <p class="event-detail">
+                Il pullman accompagna direttamente il gruppo
+                al Museo di Fisica della Sapienza.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              16:00 - 18:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Visita al <strong>Museo di Fisica della Sapienza</strong>
+                <span class="status">Confermata</span>
+              </p>
+
+              <p class="event-detail">
+                2 turni da 1h ciascuno
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              18:00 - 21:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Giretto chill + cena
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              21:00 - 22:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Rientro in hotel
+              </p>
+
+              <p class="event-detail">
+                Il pullman attende il gruppo a Tiburtina
+                e lo riporta in hotel dopo cena.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SABATO 17
+           ====================================================== -->
+
+      <section class="day">
+
+        <div class="day-heading">
+
+          <div class="day-number">
+            Giorno 03
+          </div>
+
+          <h2 class="day-name">
+            Sabato 17 ottobre
+          </h2>
+
+          <div class="day-route">
+            Roma → Trento
+          </div>
+
+        </div>
+
+
+        <div class="events">
+
+          <div class="event">
+
+            <div class="event-time">
+              07:00 - 09:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Colazione
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              09:30 - 10:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Trasferimento a Roma
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              11:00 - 12:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Planetario
+                <span class="status pending">In attesa</span>
+              </p>
+
+              <p class="event-detail">
+                In alternativa, tempo libero.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              12:30 - 14:30
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Pranzo a Roma EUR
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="event">
+
+            <div class="event-time">
+              15:00 - 23:00
+            </div>
+
+            <div class="event-content">
+              <p class="event-title">
+                Viaggio di ritorno a Trento
+              </p>
+
+              <p class="event-detail">
+                Pausa cena prevista a Barberino del Mugello (FI).
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+    <!-- =======================================================
+         FINANZIATORI
+         ======================================================== -->
+
+    <section class="funders">
+
+      <p class="funders-heading">
+        Con il contributo finanziario di:
+      </p>
+
+      <div class="funders-list">
+
+        <div class="funder">
+          <img src="https://raw.githubusercontent.com/spettrodipovo/website/refs/heads/main/viaggio/img/PAT.png" alt="PAT">
+        </div>
+
+        <div class="funder">
+          <img src="https://raw.githubusercontent.com/spettrodipovo/website/refs/heads/main/viaggio/img/POG.png" alt="POG">
+        </div>
+
+        <div class="funder">
+          <img src="https://raw.githubusercontent.com/spettrodipovo/website/refs/heads/main/viaggio/img/TAUT.png" alt="TAUT">
+        </div>
+
+        <div class="funder">
+          <img src="https://raw.githubusercontent.com/spettrodipovo/website/refs/heads/main/viaggio/img/unitn.png" alt="UniTN">
+        </div>
+
+        <div class="funder">
+          <img src="https://raw.githubusercontent.com/spettrodipovo/website/refs/heads/main/viaggio/img/opera.png" alt="OperaUniTN">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <footer class="footer">
+      Spettro di Povo · Viaggio a Roma e Frascati 2026
+    </footer>
+
+  </div>
+
+</body>
+</html>
