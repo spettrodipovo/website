@@ -172,6 +172,9 @@
         line-height: 1.55;
     }
 
+    .title-mobile-break {
+      display: none;
+    }
 
     /* =========================================================
         PROGRAMMA
@@ -514,7 +517,15 @@
         width: 125px;
         }
     }
-
+    /* Only for small screens */
+    @media (max-width: 387px) {
+      .title-mobile-break {
+        display: inline;
+      }
+      .title {
+        font-size: 35px;
+        }
+    }
     </style>
 
 </head>
@@ -557,7 +568,7 @@
       </p>
 
       <h1 class="title">
-        Piccoli fisici, grandi viaggi
+        Piccoli fisici, <br class="title-mobile-break">grandi viaggi
       </h1>
 
       <p class="subtitle">
